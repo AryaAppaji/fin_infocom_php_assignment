@@ -1,0 +1,26 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\Menu;
+use Illuminate\Database\Seeder;
+
+class MenuSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $menu = [
+            'Food',
+            'Drinks',
+        ];
+
+        foreach ($menu as $menuItem) {
+            Menu::firstOrCreate(['name' => $menuItem]);
+        }
+
+        $this->call(CategorySeeder::class);
+    }
+}

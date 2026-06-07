@@ -12,7 +12,7 @@ class HomeController extends Controller
         $categories = Category::orderBy('name')->get();
 
         $items = Item::with('sizes')
-            ->orderBy('name')
+            ->orderBy('id')
             ->get();
 
         return view('home', compact(
